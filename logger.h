@@ -297,11 +297,11 @@ namespace logger {
 
 #define LOGSTRINGIFY(x) #x
 #define LOGTOSTRING(x) LOGSTRINGIFY(x)
-#define LOG(severity, ...)                                  \
-    logger::root()->log(logger::Entry{logger::now(),        \
-                        severity,                           \
-                        __FILE__ ":" LOGTOSTRING(__LINE__), \
-                        logger::stringf(__VA_ARGS__)})
+#define LOG(severity, ...)                                                \
+    logger::root()->log(logger::Entry{logger::now(),                      \
+                                      severity,                           \
+                                      __FILE__ ":" LOGTOSTRING(__LINE__), \
+                                      logger::stringf(__VA_ARGS__)})
 
 #define INFO(...)    LOG(   0, __VA_ARGS__)
 #define WARNING(...) LOG( 100, __VA_ARGS__)
